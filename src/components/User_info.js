@@ -3,17 +3,34 @@ import React, { Component } from 'react';
 class Info extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      form: false,
-    }
+      form: true,
+      name: '',
+      age: '',
+      number: '',
+      
+    } 
     this.onClickBtn = this.onClickBtn.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangeAge = this.handleChangeAge.bind(this);
   }
 
-  onClickBtn = () => {
-    console.log('Button Clicked');
-    this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
+  handleChangeName(event) {
+    this.setState({name: event.target.value})
   }
+
+  handleChangeAge(event) {
+    this.setState({age: event.target.value})
+    
+  }
+  
+  onClickBtn = (event) => {
+    if (this.state.form) {
+      event.preventDefault();
+    }
+    this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false })
+  }
+
 
 
   render() {
@@ -21,7 +38,12 @@ class Info extends Component {
     return (
       <div>
         <h1>{this.props.test}</h1>
-        <button onClick={this.onClickBtn}>Press</button>
+        <form>
+        <div> <label htmlFor="input-name">Name:</label><input id="input-name" type="text" value={this.state.name} onChange={this.handleChangeName}></input></div>
+        <div> <label htmlFor="input-age">Age:</label><input id="input-age" type="text" value={this.state.age} onChange={this.handleChangeAge}></input></div>
+        <button onClick={this.onClickBtn}>Submit</button>
+        </form>
+       
       </div>
     );
     }
@@ -29,8 +51,11 @@ class Info extends Component {
       return( 
         <div>
           <h1>{this.props.test}</h1>
-          <button onClick={this.onClickBtn}>Press</button>
-          <h2>Form Is False</h2>
+          <button onClick={this.onClickBtn}>Edit</button>
+          <h3>{this.state.name}</h3>
+          <h3>{this.state.age}</h3>
+          {/* <h3>{this.state.number}</h3> */}
+          
         </div>
       )
     }

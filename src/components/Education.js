@@ -5,13 +5,12 @@ class Education extends Component {
     super(props);
 
     this.state = {
-      form: false,
+      form: true,
     }
     this.onClickBtn = this.onClickBtn.bind(this);
   }
 
   onClickBtn = () => {
-    console.log('Button Clicked');
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
   }
 
@@ -21,7 +20,7 @@ class Education extends Component {
     return (
       <div>
         <h1>{this.props.test}</h1>
-        <button onClick={this.onClickBtn}>Press</button>
+        <button onClick={this.onClickBtn}>Submit</button>
       </div>
     );
     }
@@ -29,7 +28,7 @@ class Education extends Component {
       return( 
         <div>
           <h1>{this.props.test}</h1>
-          <button onClick={this.onClickBtn}>Press</button>
+          <button onClick={this.onClickBtn}>Edit</button>
           <h2>Form Is False</h2>
         </div>
       )

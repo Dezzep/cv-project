@@ -5,13 +5,16 @@ class Experience extends Component {
     super(props);
 
     this.state = {
-      form: false,
+      form: true,
+
+      formValues: {
+        
+      }
     }
     this.onClickBtn = this.onClickBtn.bind(this);
   }
 
   onClickBtn = () => {
-    console.log('Button Clicked');
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
   }
 
@@ -21,7 +24,10 @@ class Experience extends Component {
     return (
       <div>
         <h1>{this.props.test}</h1>
-        <button onClick={this.onClickBtn}>Press</button>
+        <form>
+          
+        </form>
+        <button onClick={this.onClickBtn}>Submit</button>
       </div>
     );
     }
@@ -29,8 +35,8 @@ class Experience extends Component {
       return( 
         <div>
           <h1>{this.props.test}</h1>
-          <button onClick={this.onClickBtn}>Press</button>
-          <h2>Form Is False</h2>
+          <button onClick={this.onClickBtn}>Edit</button>
+          <h2>The rendered Content!</h2>
         </div>
       )
     }
