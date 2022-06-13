@@ -6,7 +6,8 @@ function App() {
  
   return (
     <div className="App">
-      <Info test="Jacob"></Info>
+      <Info/>
+
       <Education test='education'></Education>
       <Experience test="experience"></Experience>
     
