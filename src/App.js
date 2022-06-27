@@ -6,10 +6,10 @@ function App() {
  
   return (
     <div className="App">
-      <Info/>
+      <Info info="Info"/>
 
-      <Education test='education'></Education>
-      <Experience test="experience"></Experience>
+      <Education test='Education'></Education>
+      <Experience test="Experience"></Experience>
     
     </div>
   );

@@ -8,25 +8,17 @@ class Info extends Component {
       name: '',
       age: '',
       number: '',
+      email: '',
       
     } 
     this.onClickBtn = this.onClickBtn.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeAge = this.handleChangeAge.bind(this);
-    this.handleChangeNumber = this.handleChangeNumber.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-
-  handleChangeName(event) {
-    this.setState({name: event.target.value})
-  }
-
-  handleChangeAge(event) {
-    this.setState({age: event.target.value})
+  handleChange(event) {
+    this.setState({[event.target.id]: event.target.value})
     
   }
-  handleChangeNumber(event) {
-    this.setState({number: event.target.value})
-  }
+
   
   onClickBtn = (event) => {
     if (this.state.form) {
@@ -35,25 +27,27 @@ class Info extends Component {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false })
   }
 
-
-
   render() {
     if (this.state.form) {
     return (
       <div>
-        <h1>{this.props.test}</h1>
+        <h1>{this.props.info}</h1>
         <form>
         
-        <div> <label htmlFor="input-name">Name:</label><input id="input-name" 
-        type="text" value={this.state.name} onChange={this.handleChangeName}>
+        <div> <label htmlFor="name">Name:</label><input id="name" 
+        type="text" value={this.state.name} onChange={this.handleChange} placeholder="John Smith">
           </input></div>
         
-        <div> <label htmlFor="input-age">Age:</label><input id="input-age" 
-        type="number" value={this.state.age} onChange={this.handleChangeAge}>
+        <div> <label htmlFor="age">Age:</label><input id="age" 
+        type="number" value={this.state.age} onChange={this.handleChange} placeholder="36">
           </input></div>
         
-        <div> <label htmlFor="input-number">Number:</label><input id="input-number" 
-        type="number" value={this.state.number} onChange={this.handleChangeNumber}>
+        <div> <label htmlFor="number">Number:</label><input id="number" 
+        type="number" value={this.state.number} onChange={this.handleChange} placeholder="555-555-5555">
+          </input></div>
+
+          <div> <label htmlFor="email">Email:</label><input id="email" 
+        type="email" value={this.state.email} onChange={this.handleChange} placeholder="smith_guy@gmail.com">
           </input></div>
         
         <button 
@@ -71,6 +65,7 @@ class Info extends Component {
           <h3>{this.state.name}</h3>
           <h3>{this.state.age}</h3>
           <h3>{this.state.number}</h3>
+          <h3>{this.state.email}</h3>
           
         </div>
       )

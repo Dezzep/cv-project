@@ -6,12 +6,18 @@ class Education extends Component {
 
     this.state = {
       form: true,
+      school: '',
+      startDate: '',
+      endDate: '',
     }
     this.onClickBtn = this.onClickBtn.bind(this);
   }
 
   onClickBtn = () => {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
+  }
+  handleChange(event) { //--
+    this.setState({company: event.target.value})
   }
 
 
