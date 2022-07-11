@@ -38,7 +38,8 @@ class Info extends Component {
         type="text" value={this.state.name} onChange={this.handleChange} placeholder="John Smith">
           </input></div>
         
-        <div> <label htmlFor="age">Age:</label><input id="age" 
+        <div> <label htmlFor="age">Age:</label>
+        <input className='input' id="age" 
         type="number" value={this.state.age} onChange={this.handleChange} placeholder="36">
           </input></div>
         
