@@ -18,7 +18,7 @@ class EditTool extends Component {
 
   render() {
    
-  return (<div id='edit_tool' className='fixed top-0 left-0 right-0 flex justify-end align-middle'>
+  return (<div id='edit_tool' className='fixed top-0 right-0 flex justify-end align-middle'>
   
       <div className='flex-col'>
         <h2>

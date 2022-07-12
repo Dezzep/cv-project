@@ -7,9 +7,9 @@ function App() {
  
   return (
     <div className="App">
-      <Info info="Info"/>
+      <Info header="Info"/>
       <Education header='Education'></Education>
-      <Experience test="Experience"></Experience>    
+      <Experience header="Experience"></Experience>    
       <EditTool/>
     </div>
   );

@@ -11,18 +11,16 @@ class Education extends Component {
       startDate: 'Start Date',
       endDate: 'End Date',
     }
-    this.onClickBtn = this.onClickBtn.bind(this);
+    this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
     
   }
 
-  onClickBtn = () => {
+  onClickField = () => {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
     document.getElementById('edit_tool').style.display=''
-
     document.getElementById('finishEdit').addEventListener('click', () => {
       this.setState({form:true})
-
     });
   }
   handleChange(event) {
@@ -32,12 +30,12 @@ class Education extends Component {
   render() {
     if (this.state.form) {
     return (
-      <div onClick={this.onClickBtn} className='bg-secondary'>
+      <div onClick={this.onClickField} className='bg-secondary'>
         <h1 className='text-xl font-bold'>{this.props.header}</h1>
-        <h1 onClick={this.onClickBtn}>{this.state.school}</h1>
-        <h1 onClick={this.onClickBtn}>{this.state.program}</h1>
-        <h1 onClick={this.onClickBtn}>{this.state.startDate}</h1>
-        <h1 onClick={this.onClickBtn}>{this.state.endDate}</h1>
+        <h1>{this.state.school}</h1>
+        <h1>{this.state.program}</h1>
+        <h1>{this.state.startDate}</h1>
+        <h1>{this.state.endDate}</h1>
       </div>
     );
     }
