@@ -7,6 +7,10 @@ class EditTool extends Component {
     this.state = {
       showEdit: '',
     }
+    this.hideEditTools = this.hideEditTools.bind(this);
+  }
+  hideEditTools () {
+    document.getElementById('edit_tool').style.display='none'
   }
   
  
@@ -20,7 +24,8 @@ class EditTool extends Component {
         <h2>
         cool
         </h2>
-          <button className='btn-sm btn-secondary' id='finishEdit'>Done Editing</button>
+          <button onClick={this.hideEditTools}className='btn-sm btn-secondary' id='finishEdit'>Done Editing</button>
+          <p>{this.props.testSalad}</p>
       </div>
      
    </div>

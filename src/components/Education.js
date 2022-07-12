@@ -18,8 +18,11 @@ class Education extends Component {
 
   onClickBtn = () => {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
+    document.getElementById('edit_tool').style.display=''
+
     document.getElementById('finishEdit').addEventListener('click', () => {
       this.setState({form:true})
+
     });
   }
   handleChange(event) {
@@ -29,21 +32,20 @@ class Education extends Component {
   render() {
     if (this.state.form) {
     return (
-      <div className='bg-secondary'>
-        <h1 className='text-xl font-bold'>{this.props.test}</h1>
+      <div onClick={this.onClickBtn} className='bg-secondary'>
+        <h1 className='text-xl font-bold'>{this.props.header}</h1>
         <h1 onClick={this.onClickBtn}>{this.state.school}</h1>
         <h1 onClick={this.onClickBtn}>{this.state.program}</h1>
         <h1 onClick={this.onClickBtn}>{this.state.startDate}</h1>
         <h1 onClick={this.onClickBtn}>{this.state.endDate}</h1>
-
-
       </div>
     );
     }
     else {
       return( 
         <div>
-          
+                  <h1 className='text-xl font-bold'>{this.props.header}</h1>
+
           <div>
             <div className='tooltip tooltip-secondary' data-tip='Name of your school'>
               

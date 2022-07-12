@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <Info info="Info"/>
-      <Education editing='false' test='Education'></Education>
+      <Education header='Education'></Education>
       <Experience test="Experience"></Experience>    
-      <div><EditTool></EditTool> </div>
+      <EditTool/>
     </div>
   );
 }
