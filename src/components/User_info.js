@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EditTool from './editTool';
 
 class Info extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class Info extends Component {
           <h3>{this.state.age}</h3>
           <h3>{this.state.number}</h3>
           <h3>{this.state.email}</h3>
+          <EditTool/> 
           
         </div>
       )
