@@ -6,19 +6,22 @@ class Experience extends Component {
 
     this.state = {
       form: true,
-      company: '',
-      position: '',
-      tasks: '',
-      start: '',
-      end: '',
+      company: 'Company',
+      position: 'Position',
+      tasks: 'Tasks',
+      start: 'Start Date',
+      end: 'End Date',
     }
-    this.onClickBtn = this.onClickBtn.bind(this);
+    this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  onClickBtn = (event) => {
+  onClickField = (event) => {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
-    event.preventDefault();
+    document.getElementById('edit_tool').style.display=''
+    document.getElementById('finishEdit').addEventListener('click', () => {
+      this.setState({form:true})
+    });
    
   }
 
@@ -29,49 +32,9 @@ class Experience extends Component {
 
   render() {
     if (this.state.form) {
-    return (
-      <div>
-        <h1>{this.props.test}</h1>
-        <form>
-        <div> <label htmlFor="company">Company Name:</label><input id="company" 
-        type="text" value={this.state.company} onChange={this.handleChange}  placeholder="The Final Empire">
-          </input>
-        </div>
-        
-        <div> <label htmlFor="position">Position:</label><input id="position" 
-        type="text" value={this.state.position} onChange={this.handleChange} placeholder="TaskMaster">
-          </input>
-        </div>  
-
-        <div> <label htmlFor="tasks">Tasks:</label><textarea id="tasks" 
-         value={this.state.tasks} onChange={this.handleChange} placeholder="write some things you did at work">
-          </textarea>
-        </div>  
-
-        <div> <label htmlFor="start">Start Date:</label><input id="start" 
-        type="date" value={this.state.start} onChange={this.handleChange}>
-          </input>
-        </div>  
-        
-        <div> <label htmlFor="end">End Date:</label><input id="end" 
-        type="date" value={this.state.end} onChange={this.handleChange}>
-          </input>
-        </div>  
-
-        <div>
-        </div>
-          
-          <button onClick={this.onClickBtn}>Submit</button>          
-        </form>
-
-      </div>
-    );
-    }
-    else {
       return( 
-        <div>
+        <div onClick={this.onClickField} className='bg-secondary-content'>
           <h1>{this.props.test}</h1>
-          <button onClick={this.onClickBtn}>Edit</button>
           <h3>{this.state.company}</h3>
           <h3>{this.state.position}</h3>
           <h3>{this.state.tasks}</h3>
@@ -79,8 +42,63 @@ class Experience extends Component {
           <h3>{this.state.end}</h3>
 
         </div>
+      
+      )
+      
+    }
+    else {
+      return(
+      <div>
+        <h1>{this.props.test}</h1>
+        <form>
+        <div>
+          <div className='tooltip tooltip-secondary' data-tip='What company did you work for?'> <label htmlFor="company"></label>
+          <input className='text-center' id="company"
+          type="text" value={this.state.company} onChange={this.handleChange}  placeholder="Tower Maker inc">
+            </input>
+          </div>
+        </div>
+        
+        <div>
+          <div className='tooltip tooltip-secondary' data-tip='What was your position at the company'> <label htmlFor="position"></label>
+          <input className='text-center' id="position"
+          type="text" value={this.state.position} onChange={this.handleChange} placeholder="Cup Stacker">
+            </input>
+          </div>
+        </div>
+
+        <div>
+          <div className='tooltip tooltip-secondary' data-tip='What are some things you did at work?'> <label htmlFor="tasks"></label>
+          <textarea className='text-center' id="tasks"
+           value={this.state.tasks} onChange={this.handleChange} placeholder="write some things you did at work">
+            </textarea>
+          </div>
+        </div>
+
+        <div>
+          <div className='tooltip tooltip-secondary' data-tip='Start date of your job'> <label htmlFor="start"></label>
+          <input className='text-center' id="start"
+          type="text" value={this.state.start} onChange={this.handleChange} placeholder='2018-05-15'>
+            </input>
+          </div>
+        </div>
+        
+        <div>
+          <div className='tooltip tooltip-secondary' data-tip='End date of your job'> <label htmlFor="end"></label>
+          <input className='text-center' id="end"
+          type="text" value={this.state.end} onChange={this.handleChange} placeholder='2019-05-10'>
+            </input>
+          </div>
+        </div>
+
+        <div>
+        </div>
+      </form>
+
+      </div>
       )
     }
+    
   }
 }
 

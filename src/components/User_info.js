@@ -46,25 +46,33 @@ class Info extends Component {
           <h1 className='font-bold text-xl'>{this.props.header}</h1>
           <form>
           
-          <div> <label htmlFor="name"></label>
-          <input className='text-center' id="name" 
-          type="text" value={this.state.name} onChange={this.handleChange} placeholder="John Smith">
-            </input></div>
+          <div>
+            <div className='tooltip tooltip-secondary' data-tip='Enter your full name'> <label htmlFor="name"></label>
+            <input className='text-center' id="name"
+            type="text" value={this.state.name} onChange={this.handleChange} placeholder="John Smith">
+              </input></div>
+          </div>
           
-          <div> <label htmlFor="age"></label>
-          <input className='text-center' id="age" 
-          type="text" value={this.state.age} onChange={this.handleChange} placeholder="36">
-            </input></div>
+          <div>
+            <div className='tooltip tooltip-secondary' data-tip='enter your age or birthday'> <label htmlFor="age"></label>
+            <input className='text-center' id="age"
+            type="text" value={this.state.age} onChange={this.handleChange} placeholder="36">
+              </input></div>
+          </div>
           
-          <div> 
-            <label htmlFor="number"></label><input className='text-center' id="number" 
-          type="text" value={this.state.number} onChange={this.handleChange} placeholder="555-555-5555">
-            </input></div>
+          <div>
+            <div className='tooltip tooltip-secondary' data-tip='enter your phone number'>
+              <label htmlFor="number"></label><input className='text-center' id="number"
+            type="text" value={this.state.number} onChange={this.handleChange} placeholder="555-555-5555">
+              </input></div>
+          </div>
   
-            <div> <label htmlFor="email"></label>
-            <input className='text-center' id="email" 
-          type="text" value={this.state.email} onChange={this.handleChange} placeholder="smith_guy@gmail.com">
-            </input></div>
+            <div>
+              <div className='tooltip tooltip-secondary' data-tip='enter your email address'> <label htmlFor="email"></label>
+              <input className='text-center' id="email" 
+                        type="text" value={this.state.email} onChange={this.handleChange} placeholder="smith_guy@gmail.com">
+              </input></div>
+            </div>
           </form>
          
         </div>
