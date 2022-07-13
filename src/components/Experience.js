@@ -15,21 +15,16 @@ class Experience extends Component {
     this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
   onClickField = (event) => {
     this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
     document.getElementById('edit_tool').style.display=''
     document.getElementById('finishEdit').addEventListener('click', () => {
       this.setState({form:true})
     });
-   
   }
-
   handleChange(event) {
     this.setState({[event.target.id]: event.target.value})
   }
-
-
   render() {
     if (this.state.form) {
       return( 
@@ -40,11 +35,8 @@ class Experience extends Component {
           <h3>{this.state.tasks}</h3>
           <h3>{this.state.start}</h3>
           <h3>{this.state.end}</h3>
-
         </div>
-      
       )
-      
     }
     else {
       return(
@@ -58,7 +50,6 @@ class Experience extends Component {
             </input>
           </div>
         </div>
-        
         <div>
           <div className='tooltip tooltip-secondary' data-tip='What was your position at the company'> <label htmlFor="position"></label>
           <input className='text-center' id="position"
@@ -66,7 +57,6 @@ class Experience extends Component {
             </input>
           </div>
         </div>
-
         <div>
           <div className='tooltip tooltip-secondary' data-tip='What are some things you did at work?'> <label htmlFor="tasks"></label>
           <textarea className='text-center' id="tasks"
@@ -74,7 +64,6 @@ class Experience extends Component {
             </textarea>
           </div>
         </div>
-
         <div>
           <div className='tooltip tooltip-secondary' data-tip='Start date of your job'> <label htmlFor="start"></label>
           <input className='text-center' id="start"
@@ -82,7 +71,6 @@ class Experience extends Component {
             </input>
           </div>
         </div>
-        
         <div>
           <div className='tooltip tooltip-secondary' data-tip='End date of your job'> <label htmlFor="end"></label>
           <input className='text-center' id="end"
@@ -98,17 +86,6 @@ class Experience extends Component {
       </div>
       )
     }
-    
   }
 }
-
 export default Experience;
-// submit button logic
-
-// edit button logic
-
-// company name
-// position
-// main tasks
-// start date
-// end date

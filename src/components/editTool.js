@@ -12,25 +12,21 @@ class EditTool extends Component {
   hideEditTools () {
     document.getElementById('edit_tool').style.display='none'
   }
-  
- 
-
-
   render() {
    
-  return (<div id='edit_tool' className='fixed top-0 right-0 flex justify-end align-middle'>
+  return (
   
       <div className='flex-col'>
         <h2>
-        cool
+        Edit Tools
         </h2>
-          <button onClick={this.hideEditTools}className='btn-sm btn-secondary' id='finishEdit'>Done Editing</button>
-          <p>{this.props.testSalad}</p>
+          <div className='flex'>
+            <button onClick={this.hideEditTools}className='btn-sm btn-secondary' id='finishEdit'>Done Editing</button>
+          </div>
       </div>
      
-   </div>
+   
   )
     
 }}
-
 export default EditTool;

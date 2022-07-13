@@ -10,6 +10,7 @@ class Education extends Component {
       program: 'Program',
       startDate: 'Start Date',
       endDate: 'End Date',
+      numChildren: 1,
     }
     this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +28,14 @@ class Education extends Component {
     this.setState({[event.target.id]: event.target.value})
   }
 
+  
+  
   render() {
+    const children = [];
+
+    for (let i = 0; i < this.state.numChildren; i +=1) {
+      children.push(<Education key={i} number={i}/>)
+    };
     if (this.state.form) {
     return (
       <div onClick={this.onClickField} className='bg-secondary'>
