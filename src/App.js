@@ -18,6 +18,7 @@ export default class App extends React.Component {
       educationCount: [0]
     }
     this.addEducationPressed = this.addEducationPressed.bind(this);
+    this.deleteEducationPressed = this.deleteEducationPressed.bind(this);
   }
   componentDidMount()
   {
@@ -29,6 +30,17 @@ export default class App extends React.Component {
   {
     this.setState({educationArrayNum: this.state.educationArrayNum + 1})
     this.setState({educationCount: [...this.state.educationCount, this.state.educationArrayNum]})
+
+  }
+  deleteEducationPressed()
+  {
+    console.log(this.state.educationCount)
+    if (this.state.educationCount.length !== 1){
+      this.setState({educationArrayNum: this.state.educationArrayNum - 1})
+
+    this.setState(prevState => ({ educationCount: prevState.educationCount.filter(num => num !== this.state.educationArrayNum -1)}));
+    }
+     
   }
  
   render() {
@@ -38,12 +50,17 @@ export default class App extends React.Component {
            <div id='edit_tool' className='fixed top-0 right-0 flex justify-end align-middle'>
            <EditTool/>
            <button onClick={this.addEducationPressed} className='btn-sm btn-primary' id='add_education'>Add Education</button>
+           <button onClick={this.deleteEducationPressed} className='btn-sm btn-primary' id='delete_education'>Delete Education</button>
            </div>
           
           <Info header="Info"/>
-          <Education header='Education'></Education>
-         {this.state.educationCount.map((item) => {
+         {this.state.educationCount.map((item, index) => {
+          if (index === 0) {
+            return (<Education header='education' key='0'/>)
+          }
+          else{
           return (<Education key={`education${item}`}/>);
+          }
          })}
       
           <Experience header="Experience"></Experience>
