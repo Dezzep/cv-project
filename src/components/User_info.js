@@ -27,7 +27,7 @@ class Info extends Component {
   render() {
     if (this.state.form) {
       return( 
-        <div onClick={this.onClickField} className='bg-primary-content'>
+        <div onClick={this.onClickField} className='bg-secondary'>
          
           <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{this.state.name}</h3>
           <div className='flex mt-6 gap-12 justify-evenly py-4 bg-accent-content text-accent'>
@@ -41,7 +41,7 @@ class Info extends Component {
     }
     else {
       return (
-        <div className='bg-primary-content'>
+        <div className='bg-secondary'>
           
           <form>
           

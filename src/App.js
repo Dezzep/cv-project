@@ -77,7 +77,7 @@ export default class App extends React.Component {
     
     if (this.state.editTool){
       return (
-        <div className='App'>
+        <div className='App bg-secondary-content h-screen'>
            <div id='edit_tool' className={classEditTools}>
             <h1 className='font-bold text-lg'>Edit Tools</h1>
            <button onClick={this.addEducationPressed} className='btn-sm btn-secondary' id='add_education'>Add Education</button>
