@@ -30,13 +30,15 @@ class Experience extends Component {
       return( 
         <div onClick={this.onClickField} className='bg-secondary-content p-12 border-b-8 border-primary'>
           <h1 className='font-bold text-xl align-center flex'>{this.props.header}</h1>
+          
           <div className='flex-col justify-center align-center mt-6 ml-4'>
             <h3 className='font-bold text-xl'>{this.state.company}</h3>
             <h3 className='font-bold text-lg'>{this.state.position}</h3>
           </div>
-          <div className='flex gap-2 ml-4'>
-            <h3 className='text-xs'>{this.state.start}</h3>
-            <h3 className='text-xs'>{this.state.end}</h3>
+          
+          <div className='flex gap-2 ml-4 text-xs'>
+            <h3>{this.state.start}</h3>
+            <h3 >{this.state.end}</h3>
           </div>
           <h3 style={{whiteSpace: 'pre-wrap'}} className='mt-6 p-4'>{this.state.tasks}</h3>
          
@@ -50,16 +52,16 @@ class Experience extends Component {
         <form className='w-full'>
         
         <div className='flex-col justify-center align-center mt-6 ml-4'>
-          <div className=''>
+          <div>
             <div className='tooltip tooltip-secondary' data-tip='What company did you work for?'> <label htmlFor="company"></label>
-            <input className='' id="company"
+            <input className='font-bold text-xl' id="company"
             type="text" value={this.state.company} onChange={this.handleChange}  placeholder="Tower Maker inc">
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='What was your position at the company'> <label htmlFor="position"></label>
-            <input className='' id="position"
+            <input className='font-bold text-lg' id="position"
             type="text" value={this.state.position} onChange={this.handleChange} placeholder="Cup Stacker">
               </input>
             </div>

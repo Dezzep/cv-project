@@ -109,7 +109,7 @@ export default class App extends React.Component {
            <div className='flex-col'>
              {this.state.educationCount.map((item, index) => {
               if (index === 0) {
-                return (<Education header='education' key='0'/>)
+                return (<Education header='Education' key='0'/>)
               }
               else{
               return (<Education key={`education${item}`}/>);
