@@ -16,13 +16,9 @@ class EditTool extends Component {
    
   return (
   
-      <div className='flex-col'>
-        <h2>
-        Edit Tools
-        </h2>
-          <div className='flex'>
-            <button onClick={this.hideEditTools}className='btn-sm btn-secondary' id='finishEdit'>Done Editing</button>
-          </div>
+      <div className='mt-2 w-full'>
+        
+            <button onClick={this.hideEditTools}className='btn-sm btn-warning' id='finishEdit'>Done Editing</button>
       </div>
      
    

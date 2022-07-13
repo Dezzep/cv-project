@@ -6,6 +6,7 @@ import EditTool from './components/editTool';
 import React from 'react';
 
 
+let classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
 
 // function App() {
 export default class App extends React.Component {
@@ -18,16 +19,30 @@ export default class App extends React.Component {
       educationCount: [0],
       experienceArrayNum: 1,
       experienceCount: [0],
+      moveEditTools:0,
     }
     this.addEducationPressed = this.addEducationPressed.bind(this);
     this.deleteEducationPressed = this.deleteEducationPressed.bind(this);
     this.addExperiencePressed = this.addExperiencePressed.bind(this);
     this.deleteExperiencePressed = this.deleteExperiencePressed.bind(this);
+    this.moveEditTools = this.moveEditTools.bind(this);
   }
   componentDidMount()
   {
     if(document.getElementById('finishEdit')) {
       this.setState({editTool:true})
+    }
+  }
+  moveEditTools(){
+    if (this.state.moveEditTools === 0) {
+      classEditTools = 'fixed top-0 left-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
+      this.setState({moveEditTools: 1})
+      
+    }
+    else {
+      classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
+      this.setState({moveEditTools: 0})
+     
     }
   }
   addEducationPressed()
@@ -63,12 +78,16 @@ export default class App extends React.Component {
     if (this.state.editTool){
       return (
         <div className='App'>
-           <div id='edit_tool' className='fixed top-0 right-0 flex justify-end align-middle'>
+           <div id='edit_tool' className={classEditTools}>
+            <h1 className='font-bold text-lg'>Edit Tools</h1>
+           <button onClick={this.addEducationPressed} className='btn-sm btn-secondary' id='add_education'>Add Education</button>
+           <button onClick={this.deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
+           <button onClick={this.addExperiencePressed} className='btn-sm btn-secondary' id='add_education'>Add Experience</button>
+           <button onClick={this.deleteExperiencePressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Experience</button>
+
+           <button onClick={this.moveEditTools} className='btn-sm btn-info mt-4'>Move Edit Tools</button>
            <EditTool/>
-           <button onClick={this.addEducationPressed} className='btn-sm btn-primary' id='add_education'>Add Education</button>
-           <button onClick={this.deleteEducationPressed} className='btn-sm btn-primary' id='delete_education'>Delete Education</button>
-           <button onClick={this.addExperiencePressed} className='btn-sm btn-primary' id='add_education'>Add Experience</button>
-           <button onClick={this.deleteExperiencePressed} className='btn-sm btn-primary' id='delete_education'>Delete Experience</button>
+           
            </div>
           
           <Info header="Info"/>
