@@ -29,7 +29,7 @@ class Experience extends Component {
     if (this.state.form) {
       return( 
         <div onClick={this.onClickField} className='bg-secondary-content'>
-          <h1>{this.props.test}</h1>
+          <h1 className='font-bold text-xl'>{this.props.header}</h1>
           <h3>{this.state.company}</h3>
           <h3>{this.state.position}</h3>
           <h3>{this.state.tasks}</h3>
@@ -41,7 +41,7 @@ class Experience extends Component {
     else {
       return(
       <div>
-        <h1>{this.props.test}</h1>
+        <h1 className='font-bold text-xl'>{this.props.header}</h1>
         <form>
         <div>
           <div className='tooltip tooltip-secondary' data-tip='What company did you work for?'> <label htmlFor="company"></label>

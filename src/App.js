@@ -15,10 +15,14 @@ export default class App extends React.Component {
     this.state={
       editTool:false,
       educationArrayNum: 1,
-      educationCount: [0]
+      educationCount: [0],
+      experienceArrayNum: 1,
+      experienceCount: [0],
     }
     this.addEducationPressed = this.addEducationPressed.bind(this);
     this.deleteEducationPressed = this.deleteEducationPressed.bind(this);
+    this.addExperiencePressed = this.addExperiencePressed.bind(this);
+    this.deleteExperiencePressed = this.deleteExperiencePressed.bind(this);
   }
   componentDidMount()
   {
@@ -34,16 +38,28 @@ export default class App extends React.Component {
   }
   deleteEducationPressed()
   {
-    console.log(this.state.educationCount)
     if (this.state.educationCount.length !== 1){
       this.setState({educationArrayNum: this.state.educationArrayNum - 1})
 
     this.setState(prevState => ({ educationCount: prevState.educationCount.filter(num => num !== this.state.educationArrayNum -1)}));
-    }
-     
+    }  
   }
+  addExperiencePressed()
+   {
+    this.setState({experienceArrayNum: this.state.experienceArrayNum + 1})
+    this.setState({experienceCount: [...this.state.experienceCount, this.state.experienceArrayNum]})
+   }
+   deleteExperiencePressed()
+   {
+    if (this.state.experienceCount.length !== 1){
+      this.setState({experienceArrayNum: this.state.experienceArrayNum - 1})
+
+    this.setState(prevState => ({ experienceCount: prevState.experienceCount.filter(num => num !== this.state.experienceArrayNum -1)}));
+    }  
+   }
  
   render() {
+    
     if (this.state.editTool){
       return (
         <div className='App'>
@@ -51,22 +67,35 @@ export default class App extends React.Component {
            <EditTool/>
            <button onClick={this.addEducationPressed} className='btn-sm btn-primary' id='add_education'>Add Education</button>
            <button onClick={this.deleteEducationPressed} className='btn-sm btn-primary' id='delete_education'>Delete Education</button>
+           <button onClick={this.addExperiencePressed} className='btn-sm btn-primary' id='add_education'>Add Experience</button>
+           <button onClick={this.deleteExperiencePressed} className='btn-sm btn-primary' id='delete_education'>Delete Experience</button>
            </div>
           
           <Info header="Info"/>
-         {this.state.educationCount.map((item, index) => {
-          if (index === 0) {
-            return (<Education header='education' key='0'/>)
-          }
-          else{
-          return (<Education key={`education${item}`}/>);
-          }
-         })}
-      
-          <Experience header="Experience"></Experience>
+         
+         
+         <div>
+           {this.state.educationCount.map((item, index) => {
+            if (index === 0) {
+              return (<Education header='education' key='0'/>)
+            }
+            else{
+            return (<Education key={`education${item}`}/>);
+            }
+           })}
+         </div>
+           {this.state.experienceCount.map((item, index) => {
+            if (index === 0) {
+              return (<Experience header="Experience" key='0'/>)
+            }
+            else{
+              return (<Experience key={`experience${item}`}/>)
+            }
+           })}
         </div>  
       )
     }
+    
     else {
     return (
       <div className="App">
