@@ -18,7 +18,7 @@ class EditTool extends Component {
   
       <div className='mt-2 w-full'>
         
-            <button onClick={this.hideEditTools}className='btn-sm btn-warning' id='finishEdit'>Done Editing</button>
+            <button onClick={this.hideEditTools}className='btn-sm bg-secondary w-full font-bold text-md' id='finishEdit'>Finished Editing</button>
       </div>
      
    

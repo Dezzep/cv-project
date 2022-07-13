@@ -6,6 +6,7 @@ import EditTool from './components/editTool';
 import React from 'react';
 
 
+
 let classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
 
 // function App() {
@@ -80,13 +81,12 @@ export default class App extends React.Component {
         <div className='App bg-secondary-content h-screen'>
            <div id='edit_tool' className={classEditTools}>
             <h1 className='font-bold text-lg'>Edit Tools</h1>
-           <button onClick={this.addEducationPressed} className='btn-sm btn-secondary' id='add_education'>Add Education</button>
+           <button onClick={this.addEducationPressed} className='btn-sm btn-success' id='add_education'>Add Education</button>
            <button onClick={this.deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
-           <button onClick={this.addExperiencePressed} className='btn-sm btn-secondary' id='add_education'>Add Experience</button>
+           <button onClick={this.addExperiencePressed} className='btn-sm btn-success' id='add_education'>Add Experience</button>
            <button onClick={this.deleteExperiencePressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Experience</button>
-
            <button onClick={this.moveEditTools} className='btn-sm btn-info mt-4'>Move Edit Tools</button>
-           <EditTool/>
+           <EditTool/> 
            
            </div>
           
