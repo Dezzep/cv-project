@@ -6,7 +6,7 @@ import EditTool from './components/editTool';
 import React from 'react';
 
 
-let classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
+let classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
 
 // function App() {
 export default class App extends React.Component {
@@ -35,12 +35,12 @@ export default class App extends React.Component {
   }
   moveEditTools(){
     if (this.state.moveEditTools === 0) {
-      classEditTools = 'fixed top-0 left-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
+      classEditTools = 'fixed top-0 left-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
       this.setState({moveEditTools: 1})
       
     }
     else {
-      classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60'
+      classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
       this.setState({moveEditTools: 0})
      
     }
@@ -93,25 +93,31 @@ export default class App extends React.Component {
           <Info header="Info"/>
          
          
-         <div>
-           {this.state.educationCount.map((item, index) => {
-            if (index === 0) {
-              return (<Education header='education' key='0'/>)
-            }
-            else{
-            return (<Education key={`education${item}`}/>);
-            }
-           })}
+        
+         <div className='flex-col'>
+               {this.state.experienceCount.map((item, index) => {
+                if (index === 0) {
+                  return (<Experience header="Work Experience" key='0'/>)
+                }
+                else{
+                  return (<Experience key={`experience${item}`}/>)
+                }
+               })}
+             </div>
+           
+           
+           <div className='flex-col'>
+             {this.state.educationCount.map((item, index) => {
+              if (index === 0) {
+                return (<Education header='education' key='0'/>)
+              }
+              else{
+              return (<Education key={`education${item}`}/>);
+              }
+             })}
+           </div>
+                   
          </div>
-           {this.state.experienceCount.map((item, index) => {
-            if (index === 0) {
-              return (<Experience header="Experience" key='0'/>)
-            }
-            else{
-              return (<Experience key={`experience${item}`}/>)
-            }
-           })}
-        </div>  
       )
     }
     

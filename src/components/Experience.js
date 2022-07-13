@@ -28,8 +28,8 @@ class Experience extends Component {
   render() {
     if (this.state.form) {
       return( 
-        <div onClick={this.onClickField} className='bg-secondary-content'>
-          <h1 className='font-bold text-xl'>{this.props.header}</h1>
+        <div onClick={this.onClickField} className='bg-secondary-content p-12 border-b-8 border-primary'>
+          <h1 className='font-bold text-xl align-center flex'>{this.props.header}</h1>
           <h3>{this.state.company}</h3>
           <h3>{this.state.position}</h3>
           <h3>{this.state.tasks}</h3>
@@ -40,7 +40,7 @@ class Experience extends Component {
     }
     else {
       return(
-      <div>
+      <div className='bg-secondary-content p-12 flex-col border-b-8 border-primary'>
         <h1 className='font-bold text-xl'>{this.props.header}</h1>
         <form>
         <div>
