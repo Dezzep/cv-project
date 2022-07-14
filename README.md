@@ -1,5 +1,5 @@
 --------------------- 
-  *** Not Supported on mobile because I thought it wouldn't make that much sense ***
+  *** No Mobile Implementation ***
   (It's still slightly usable, but if you want to demo it effeciently, use a desktop)
 ---------------------
 
