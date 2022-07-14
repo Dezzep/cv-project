@@ -63,14 +63,14 @@ const Experience = (props) => {
           <div>
             <div className='tooltip tooltip-secondary' data-tip='Start date of your job'> <label htmlFor="start"></label>
             <input className='' id="start"
-            type="text" value={start} onChange={e => setStart(e.target.value)} placeholder='Start Date'>
+            type="date" value={start} onChange={e => setStart(e.target.value)} placeholder='Start Date'>
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='End date of your job'> <label htmlFor="end"></label>
             <input className='' id="end"
-            type="text" value={end} onChange={e => setEnd(e.target.value)} placeholder='End Date'>
+            type="date" value={end} onChange={e => setEnd(e.target.value)} placeholder='End Date'>
               </input>
             </div>
           </div>

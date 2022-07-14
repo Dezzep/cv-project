@@ -61,7 +61,7 @@ const Education = (props) =>  {
               <div className='tooltip tooltip-secondary' data-tip='Date you started your schooling'>
                 <label htmlFor="startDate"></label>
                 <input className='text-center p-0 m-0' id="startDate"
-                        type="text" value={startDate} onChange={e => setStartDate(e.target.value)}  placeholder="Start Date">
+                        type="date" value={startDate} onChange={e => setStartDate(e.target.value)}  placeholder="Start Date">
                 </input>
               </div>
             </div>
@@ -69,7 +69,7 @@ const Education = (props) =>  {
               <div className='tooltip tooltip-secondary' data-tip='Date you ended your schooling'>
                 <label htmlFor="endDate"></label>
                 <input className='text-center p-0 m-0' id="endDate"
-                        type="text" value={endDate} onChange={e => setEndDate(e.target.value)}  placeholder="End Date">
+                        type="date" value={endDate} onChange={e => setEndDate(e.target.value)}  placeholder="End Date">
                 </input>
               </div>
           </div>
