@@ -1,40 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Info extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      form: true,
-      name: '',
-      location: '',
-      number: '',
-      email: '',
-    } 
-    this.onClickField = this.onClickField.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({[event.target.id]: event.target.value})
+const Info = (props) => {
+
+  const [form, setForm] = useState(true);
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [number, setNumber] = useState('');
+  const [email, setEmail] = useState('');
     
-  }
-  onClickField = (event) => {
-    this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false })
+ 
+ const onClickField = (event) => {
+    form === false ? setForm(true) : setForm(false);
     document.getElementById('edit_tool').style.display=''
     document.getElementById('finishEdit').addEventListener('click', () => {
-      this.setState({form:true})
+      setForm(true)
     });
   }
-  render() {
-    if (this.state.form) {
+    if (form) {
       return( 
-        <div onClick={this.onClickField} className='bg-secondary'>
+        <div onClick={onClickField} className='bg-secondary'>
          
-          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{this.state.name ? this.state.name : 'Your Name'}</h3>
+          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{name ? name : 'Your Name'}</h3>
           <div className='flex mt-6 gap-12 justify-evenly py-4 bg-accent-content text-accent'>
             
-          <h3>{this.state.email ? this.state.email : 'Your Email'}</h3>
-          <h3>{this.state.number ? this.state.number : 'Your Phone Number'}</h3> 
-          <h3>{this.state.location ? this.state.location : 'Where You Live'}</h3>
+          <h3>{email ? email : 'Your Email'}</h3>
+          <h3>{number ? number : 'Your Phone Number'}</h3> 
+          <h3>{location ? location : 'Where You Live'}</h3>
           </div>
         </div>
       )
@@ -48,7 +39,7 @@ class Info extends Component {
           <div className='font-bold text-4xl py-6 ml-12 pt-8'>
             <div className='tooltip tooltip-secondary' data-tip='Enter your full name'> <label htmlFor="name"></label>
             <input className='' id="name"
-            type="text" value={this.state.name} onChange={this.handleChange} placeholder="John Smith">
+            type="text" value={name} onChange={e => setName(e.target.value)} placeholder="John Smith">
               </input></div>
           </div>
           
@@ -58,14 +49,14 @@ class Info extends Component {
           <div>
                 <div className='tooltip tooltip-secondary' data-tip='enter your email address'> <label htmlFor="email"></label>
                 <input className='text-center w-56' id="email"
-                          type="text" value={this.state.email} onChange={this.handleChange} placeholder="bob_bobby_bobster@gmail.com">
+                          type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="bob_bobby_bobster@gmail.com">
                 </input></div>
               </div>
             
             <div>
               <div className='tooltip tooltip-secondary' data-tip='enter your phone number'>
                 <label htmlFor="number"></label><input className='text-center w-56' id="number"
-              type="number" value={this.state.number} onChange={this.handleChange} placeholder="555-444-3333">
+              type="number" value={number} onChange={e => setNumber(e.target.value)} placeholder="555-444-3333">
                 </input></div>
             </div>
              
@@ -73,7 +64,7 @@ class Info extends Component {
               <div>
               <div className='tooltip tooltip-secondary' data-tip='Where do you live?'> <label htmlFor="location"></label>
               <input className='text-center w-56' id="location"
-              type="text" value={this.state.location} onChange={this.handleChange} placeholder="Montreal">
+              type="text" value={location} onChange={e => setLocation(e.target.value)} placeholder="Montreal">
                 </input></div>
             </div>
           </div>
@@ -82,7 +73,7 @@ class Info extends Component {
         </div>
       );
     }
-  }
+  
 }
 
 export default Info;

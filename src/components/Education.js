@@ -1,45 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Education extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      form: true,
-      school: '',
-      program: '',
-      startDate: '',
-      endDate: '',
-    }
-    this.onClickField = this.onClickField.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    
-  }
+const Education = (props) =>  {
 
-  onClickField = () => {
-    this.state.form === false ? this.setState({ form: true }) : this.setState({ form: false})
+    const [form, setForm] = useState(true)
+    const [program, setProgram] = useState('')
+    const [school, setSchool] = useState('')
+    const [startDate, setStartDate] = useState('')
+    const [endDate, setEndDate] = useState('')
+    
+  const onClickField = () => {
+    form === false ? setForm(true) : setForm(false)
     document.getElementById('edit_tool').style.display=''
     document.getElementById('finishEdit').addEventListener('click', () => {
-      this.setState({form:true})
+      setForm(true);
     });
   }
-  handleChange(event) {
-    this.setState({[event.target.id]: event.target.value})
-  }
-  render() {
-    if (this.state.form) {
+    if (form) {
     return (
-      <div onClick={this.onClickField} className='bg-secondary p-12 border-b-8 border-primary'>
-        <h1 className='text-xl font-bold align-center flex'>{this.props.header}</h1>
+      <div onClick={onClickField} className='bg-secondary p-12 border-b-8 border-primary'>
+        <h1 className='text-xl font-bold align-center flex'>{props.header}</h1>
         
         <div className='flex-col justify-center align-center mt-6 ml-4'>
-          <h1 className='font-bold text-xl'>{this.state.school ? this.state.school : 'School'}</h1>
-          <h1 className='font-bold text-lg'>{this.state.program ? this.state.program : 'Program'}</h1>
+          <h1 className='font-bold text-xl'>{school ? school : 'School'}</h1>
+          <h1 className='font-bold text-lg'>{program ? program : 'Program'}</h1>
         </div>
         
         <div className='flex gap-2 ml-4 text-xs'>
-          <h1>{this.state.startDate ? this.state.startDate : 'Start Date'}</h1>
-          <h1>{this.state.endDate ? this.state.endDate : 'End Date'}</h1>
+          <h1>{startDate ? startDate : 'Start Date'}</h1>
+          <h1>{endDate ? endDate : 'End Date'}</h1>
         </div>
       </div>
     );
@@ -47,7 +35,7 @@ class Education extends Component {
     else {
       return( 
         <div className='bg-secondary p-12 border-b-8 border-primary'>
-                  <h1 className='text-xl font-bold'>{this.props.header}</h1>
+                  <h1 className='text-xl font-bold'>{props.header}</h1>
 
           <div className='flex-col justify-center align-center mt-6 ml-4'>
             <div>
@@ -55,7 +43,7 @@ class Education extends Component {
             
                 <label htmlFor="school"></label>
                 <input className=' font-bold text-xl' id="school"
-                        type="text" value={this.state.school} onChange={this.handleChange}  placeholder="School">
+                        type="text" value={school} onChange={e => setSchool(e.target.value)}  placeholder="School">
                 </input>
               </div>
             </div>
@@ -63,7 +51,7 @@ class Education extends Component {
               <div className='tooltip tooltip-secondary' data-tip='What did you study'>
                 <label htmlFor="program"></label>
                 <input className='font-bold text-lg' id="program"
-                        type="text" value={this.state.program} onChange={this.handleChange}  placeholder="Computer Sciences">
+                        type="text" value={program} onChange={e => setProgram(e.target.value)}  placeholder="Computer Sciences">
                 </input>
               </div>
             </div>
@@ -73,7 +61,7 @@ class Education extends Component {
               <div className='tooltip tooltip-secondary' data-tip='Date you started your schooling'>
                 <label htmlFor="startDate"></label>
                 <input className='text-center p-0 m-0' id="startDate"
-                        type="text" value={this.state.startDate} onChange={this.handleChange}  placeholder="Start Date">
+                        type="text" value={startDate} onChange={e => setStartDate(e.target.value)}  placeholder="Start Date">
                 </input>
               </div>
             </div>
@@ -81,7 +69,7 @@ class Education extends Component {
               <div className='tooltip tooltip-secondary' data-tip='Date you ended your schooling'>
                 <label htmlFor="endDate"></label>
                 <input className='text-center p-0 m-0' id="endDate"
-                        type="text" value={this.state.endDate} onChange={this.handleChange}  placeholder="End Date">
+                        type="text" value={endDate} onChange={e => setEndDate(e.target.value)}  placeholder="End Date">
                 </input>
               </div>
           </div>
@@ -90,7 +78,6 @@ class Education extends Component {
 
       )
     }
-  }
 }
 
 export default Education
