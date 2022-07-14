@@ -59,11 +59,11 @@ const App = () => {
         <div className='App bg-secondary-content h-screen'>
            <div id='edit_tool' className={classEditTools}>
             <h1 className='font-bold md:text-lg'>Edit Tools</h1>
-           <button onClick={addEducationPressed} className='btn-sm btn-success' id='add_education'>Add Education</button>
-           <button onClick={deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
-           <button onClick={addExperiencePressed} className='btn-sm btn-success' id='add_education'>Add Experience</button>
-           <button onClick={deleteExperiencePressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Experience</button>
-           <button onClick={moveEditTools} className='btn-sm btn-info mt-4'>Move Edit Tools</button>
+           <button onClick={addEducationPressed} className='btn text-black btn-success hover:bg-lime-500' id='add_education'>Add Education</button>
+           <button onClick={deleteEducationPressed} className='btn text-black bg-secondary-focus hover:bg-red-500' id='delete_education'>Delete Education</button>
+           <button onClick={addExperiencePressed} className='btn text-black btn-success hover:bg-lime-500' id='add_education'>Add Experience</button>
+           <button onClick={deleteExperiencePressed} className='btn text-black bg-secondary-focus hover:bg-red-500' id='delete_education'>Delete Experience</button>
+           <button onClick={moveEditTools} className='btn text-black btn-info hover:bg-slate-400 mt-4'>Move Edit Tools</button>
            <EditTool/> 
            </div>
           <Info header="Info"/>

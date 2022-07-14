@@ -20,7 +20,7 @@ const Info = (props) => {
       return( 
         <div onClick={onClickField} className='bg-secondary'>
          
-          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{name ? name : 'Your Name'}</h3>
+          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{name ? name : <div className=' w-96 text-info-content bg-warning'>{'Click Here To Enter Your Name'}</div>}</h3>
           <div className='flex mt-6 gap-12 justify-evenly py-4 bg-accent-content text-accent'>
             
           <h3>{email ? email : 'Your Email'}</h3>
@@ -69,7 +69,7 @@ const Info = (props) => {
             </div>
           </div>
           </form>
-         
+          <button className='btn mt-4 ml-8 mb-4' onClick={e => {setForm(true)}}>Done Editing</button>
         </div>
       );
     }

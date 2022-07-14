@@ -21,8 +21,8 @@ const Education = (props) =>  {
         <h1 className='text-xl font-bold align-center flex'>{props.header}</h1>
         
         <div className='flex-col justify-center align-center mt-6 ml-4'>
-          <h1 className='font-bold text-xl'>{school ? school : 'School'}</h1>
-          <h1 className='font-bold text-lg'>{program ? program : 'Program'}</h1>
+          <h1 className='font-bold text-xl mb-2'>{school ? school : 'School'}</h1>
+          <h1 className='font-bold text-lg mb-2'>{program ? program : 'Program'}</h1>
         </div>
         
         <div className='flex gap-2 ml-4 text-xs'>
@@ -42,7 +42,7 @@ const Education = (props) =>  {
               <div className='tooltip tooltip-secondary' data-tip='Name of your school'>
             
                 <label htmlFor="school"></label>
-                <input className=' font-bold text-xl' id="school"
+                <input className=' font-bold text-xl mb-2' id="school"
                         type="text" value={school} onChange={e => setSchool(e.target.value)}  placeholder="School">
                 </input>
               </div>
@@ -50,7 +50,7 @@ const Education = (props) =>  {
             <div>
               <div className='tooltip tooltip-secondary' data-tip='What did you study'>
                 <label htmlFor="program"></label>
-                <input className='font-bold text-lg' id="program"
+                <input className='font-bold text-lg mb-2' id="program"
                         type="text" value={program} onChange={e => setProgram(e.target.value)}  placeholder="Computer Sciences">
                 </input>
               </div>
@@ -74,6 +74,7 @@ const Education = (props) =>  {
               </div>
           </div>
           </div>
+          <button className='btn mt-6' onClick={e => {setForm(true)}}>Done Editing</button>
         </div>
 
       )
