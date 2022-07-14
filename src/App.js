@@ -36,7 +36,7 @@ export default class App extends React.Component {
   }
   moveEditTools(){
     if (this.state.moveEditTools === 0) {
-      classEditTools = 'fixed top-0 left-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
+      classEditTools = 'fixed bottom-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
       this.setState({moveEditTools: 1})
       
     }
@@ -80,7 +80,7 @@ export default class App extends React.Component {
       return (
         <div className='App bg-secondary-content h-screen'>
            <div id='edit_tool' className={classEditTools}>
-            <h1 className='font-bold text-lg'>Edit Tools</h1>
+            <h1 className='font-bold md:text-lg'>Edit Tools</h1>
            <button onClick={this.addEducationPressed} className='btn-sm btn-success' id='add_education'>Add Education</button>
            <button onClick={this.deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
            <button onClick={this.addExperiencePressed} className='btn-sm btn-success' id='add_education'>Add Experience</button>
