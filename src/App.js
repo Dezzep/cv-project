@@ -3,99 +3,72 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Info from './components/User_info';
 import EditTool from './components/editTool';
-import React from 'react';
-
-
+import React, { useEffect, useState } from 'react';
 
 let classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
-
-// function App() {
-export default class App extends React.Component {
-  constructor()
-  {
-    super();
-    this.state={
-      editTool:false,
-      educationArrayNum: 1,
-      educationCount: [0],
-      experienceArrayNum: 1,
-      experienceCount: [0],
-      moveEditTools:0,
-    }
-    this.addEducationPressed = this.addEducationPressed.bind(this);
-    this.deleteEducationPressed = this.deleteEducationPressed.bind(this);
-    this.addExperiencePressed = this.addExperiencePressed.bind(this);
-    this.deleteExperiencePressed = this.deleteExperiencePressed.bind(this);
-    this.moveEditTools = this.moveEditTools.bind(this);
-  }
-  componentDidMount()
-  {
+const App = () => {
+  const [editTool, setEditTool] = useState(false);
+  const [educationArrayNum, setEducationArrayNum] = useState(1);
+  const [educationCount, setEducationCount] = useState([0]);
+  const [experienceArrayNum, setExperienceArrayNum] = useState(1);
+  const [experienceCount, setExperienceCount] = useState([0]);
+  const [editToolMove, setEditToolMove] = useState(0);
+  useEffect(() => {
     if(document.getElementById('finishEdit')) {
-      this.setState({editTool:true})
+      setEditTool(true)
     }
-  }
-  moveEditTools(){
-    if (this.state.moveEditTools === 0) {
+  });
+  const moveEditTools = () => {
+    if (editToolMove === 0) {
       classEditTools = 'fixed bottom-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
-      this.setState({moveEditTools: 1})
+      setEditToolMove(1);
       
     }
     else {
       classEditTools = 'fixed top-0 right-0 flex justify-end align-middle btn-group btn-group-vertical w-64 p-4 px-8 bg-warning/60 shadow-2xl z-50'
-      this.setState({moveEditTools: 0})
+      setEditToolMove(0);
      
     }
   }
-  addEducationPressed()
+  const addEducationPressed = () =>
   {
-    this.setState({educationArrayNum: this.state.educationArrayNum + 1})
-    this.setState({educationCount: [...this.state.educationCount, this.state.educationArrayNum]})
-
+    setEducationArrayNum(educationArrayNum + 1);
+    setEducationCount([...educationCount, educationArrayNum])
   }
-  deleteEducationPressed()
+  const deleteEducationPressed = () =>
   {
-    if (this.state.educationCount.length !== 1){
-      this.setState({educationArrayNum: this.state.educationArrayNum - 1})
-
-    this.setState(prevState => ({ educationCount: prevState.educationCount.filter(num => num !== this.state.educationArrayNum -1)}));
+    if (educationCount.length !== 1){
+      setEducationArrayNum(educationArrayNum - 1)
+      setEducationCount(educationCount.splice(0, educationArrayNum -1));
     }  
   }
-  addExperiencePressed()
+  const addExperiencePressed = () =>
    {
-    this.setState({experienceArrayNum: this.state.experienceArrayNum + 1})
-    this.setState({experienceCount: [...this.state.experienceCount, this.state.experienceArrayNum]})
+    setExperienceArrayNum(experienceArrayNum + 1);
+    setExperienceCount(([...experienceCount, experienceArrayNum]));
    }
-   deleteExperiencePressed()
+  const deleteExperiencePressed = () =>
    {
-    if (this.state.experienceCount.length !== 1){
-      this.setState({experienceArrayNum: this.state.experienceArrayNum - 1})
-
-    this.setState(prevState => ({ experienceCount: prevState.experienceCount.filter(num => num !== this.state.experienceArrayNum -1)}));
+    if (experienceCount.length !== 1){
+      setExperienceArrayNum(experienceArrayNum - 1);
+      setExperienceCount(experienceCount.splice(0, experienceArrayNum -1));
     }  
    }
- 
-  render() {
-    
-    if (this.state.editTool){
+    if (editTool){
       return (
         <div className='App bg-secondary-content h-screen'>
            <div id='edit_tool' className={classEditTools}>
             <h1 className='font-bold md:text-lg'>Edit Tools</h1>
-           <button onClick={this.addEducationPressed} className='btn-sm btn-success' id='add_education'>Add Education</button>
-           <button onClick={this.deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
-           <button onClick={this.addExperiencePressed} className='btn-sm btn-success' id='add_education'>Add Experience</button>
-           <button onClick={this.deleteExperiencePressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Experience</button>
-           <button onClick={this.moveEditTools} className='btn-sm btn-info mt-4'>Move Edit Tools</button>
+           <button onClick={addEducationPressed} className='btn-sm btn-success' id='add_education'>Add Education</button>
+           <button onClick={deleteEducationPressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Education</button>
+           <button onClick={addExperiencePressed} className='btn-sm btn-success' id='add_education'>Add Experience</button>
+           <button onClick={deleteExperiencePressed} className='btn-sm btn-secondary bg-secondary-focus' id='delete_education'>Delete Experience</button>
+           <button onClick={moveEditTools} className='btn-sm btn-info mt-4'>Move Edit Tools</button>
            <EditTool/> 
-           
            </div>
-          
           <Info header="Info"/>
-         
-         
-        
          <div className='flex-col'>
-               {this.state.experienceCount.map((item, index) => {
+               {experienceCount.map((item, index) => {
                 if (index === 0) {
                   return (<Experience header="Work Experience" key='0'/>)
                 }
@@ -104,10 +77,8 @@ export default class App extends React.Component {
                 }
                })}
              </div>
-           
-           
            <div className='flex-col'>
-             {this.state.educationCount.map((item, index) => {
+             {educationCount.map((item, index) => {
               if (index === 0) {
                 return (<Education header='Education' key='0'/>)
               }
@@ -120,7 +91,6 @@ export default class App extends React.Component {
          </div>
       )
     }
-    
     else {
     return (
       <div className="App">
@@ -130,6 +100,4 @@ export default class App extends React.Component {
       </div>
     );}
   }
-}
-
-
+export default App
