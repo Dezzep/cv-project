@@ -6,11 +6,11 @@ class Experience extends Component {
 
     this.state = {
       form: true,
-      company: 'Company',
-      position: 'Position',
-      tasks: 'Tasks',
-      start: 'Start Date',
-      end: 'End Date',
+      company: '',
+      position: '',
+      tasks: '',
+      start: '',
+      end: '',
     }
     this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -32,15 +32,15 @@ class Experience extends Component {
           <h1 className='font-bold text-xl align-center flex'>{this.props.header}</h1>
           
           <div className='flex-col justify-center align-center mt-6 ml-4'>
-            <h3 className='font-bold text-xl'>{this.state.company}</h3>
-            <h3 className='font-bold text-lg'>{this.state.position}</h3>
+            <h3 className='font-bold text-xl'>{this.state.company ? this.state.company : 'Company Name'}</h3>
+            <h3 className='font-bold text-lg'>{this.state.position ? this.state.position : 'Position At Company'}</h3>
           </div>
           
           <div className='flex gap-2 ml-4 text-xs'>
-            <h3>{this.state.start}</h3>
-            <h3 >{this.state.end}</h3>
+            <h3>{this.state.start ? this.state.date : 'Start Date'}</h3>
+            <h3 >{this.state.end ? this.state.end : 'End Date'}</h3>
           </div>
-          <h3 style={{whiteSpace: 'pre-wrap'}} className='mt-6 p-4'>{this.state.tasks}</h3>
+          <h3 style={{whiteSpace: 'pre-wrap'}} className='mt-6 p-4'>{this.state.tasks ? this.state.tasks : 'Tasks/Responsibilites'}</h3>
          
         </div>
       )
@@ -55,14 +55,14 @@ class Experience extends Component {
           <div>
             <div className='tooltip tooltip-secondary' data-tip='What company did you work for?'> <label htmlFor="company"></label>
             <input className='font-bold text-xl' id="company"
-            type="text" value={this.state.company} onChange={this.handleChange}  placeholder="Tower Maker inc">
+            type="text" value={this.state.company} onChange={this.handleChange}  placeholder="Company Name">
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='What was your position at the company'> <label htmlFor="position"></label>
             <input className='font-bold text-lg' id="position"
-            type="text" value={this.state.position} onChange={this.handleChange} placeholder="Cup Stacker">
+            type="text" value={this.state.position} onChange={this.handleChange} placeholder="Your Position">
               </input>
             </div>
           </div>
@@ -72,14 +72,14 @@ class Experience extends Component {
           <div>
             <div className='tooltip tooltip-secondary' data-tip='Start date of your job'> <label htmlFor="start"></label>
             <input className='' id="start"
-            type="text" value={this.state.start} onChange={this.handleChange} placeholder='2018-05-15'>
+            type="text" value={this.state.start} onChange={this.handleChange} placeholder='Start Date'>
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='End date of your job'> <label htmlFor="end"></label>
             <input className='' id="end"
-            type="text" value={this.state.end} onChange={this.handleChange} placeholder='2019-05-10'>
+            type="text" value={this.state.end} onChange={this.handleChange} placeholder='End Date'>
               </input>
             </div>
           </div>

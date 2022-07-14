@@ -5,10 +5,10 @@ class Info extends Component {
     super(props);
     this.state = {
       form: true,
-      name: 'Name',
-      location: 'Location',
-      number: 'Number',
-      email: 'Email',
+      name: '',
+      location: '',
+      number: '',
+      email: '',
     } 
     this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,12 +29,12 @@ class Info extends Component {
       return( 
         <div onClick={this.onClickField} className='bg-secondary'>
          
-          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{this.state.name}</h3>
+          <h3 className='font-bold text-4xl py-6 ml-12 pt-8'>{this.state.name ? this.state.name : 'Your Name'}</h3>
           <div className='flex mt-6 gap-12 justify-evenly py-4 bg-accent-content text-accent'>
             
-          <h3>{this.state.email}</h3>
-          <h3>{this.state.number}</h3> 
-          <h3>{this.state.location}</h3>
+          <h3>{this.state.email ? this.state.email : 'Your Email'}</h3>
+          <h3>{this.state.number ? this.state.number : 'Your Phone Number'}</h3> 
+          <h3>{this.state.location ? this.state.location : 'Where You Live'}</h3>
           </div>
         </div>
       )
@@ -58,14 +58,14 @@ class Info extends Component {
           <div>
                 <div className='tooltip tooltip-secondary' data-tip='enter your email address'> <label htmlFor="email"></label>
                 <input className='text-center w-56' id="email"
-                          type="text" value={this.state.email} onChange={this.handleChange} placeholder="smith_guy@gmail.com">
+                          type="text" value={this.state.email} onChange={this.handleChange} placeholder="bob_bobby_bobster@gmail.com">
                 </input></div>
               </div>
             
             <div>
               <div className='tooltip tooltip-secondary' data-tip='enter your phone number'>
                 <label htmlFor="number"></label><input className='text-center w-56' id="number"
-              type="text" value={this.state.number} onChange={this.handleChange} placeholder="555-555-5555">
+              type="number" value={this.state.number} onChange={this.handleChange} placeholder="555-444-3333">
                 </input></div>
             </div>
              

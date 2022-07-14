@@ -6,10 +6,10 @@ class Education extends Component {
     
     this.state = {
       form: true,
-      school: 'School',
-      program: 'Program',
-      startDate: 'Start Date',
-      endDate: 'End Date',
+      school: '',
+      program: '',
+      startDate: '',
+      endDate: '',
     }
     this.onClickField = this.onClickField.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -33,13 +33,13 @@ class Education extends Component {
         <h1 className='text-xl font-bold align-center flex'>{this.props.header}</h1>
         
         <div className='flex-col justify-center align-center mt-6 ml-4'>
-          <h1 className='font-bold text-xl'>{this.state.school}</h1>
-          <h1 className='font-bold text-lg'>{this.state.program}</h1>
+          <h1 className='font-bold text-xl'>{this.state.school ? this.state.school : 'School'}</h1>
+          <h1 className='font-bold text-lg'>{this.state.program ? this.state.program : 'Program'}</h1>
         </div>
         
         <div className='flex gap-2 ml-4 text-xs'>
-          <h1>{this.state.startDate}</h1>
-          <h1>{this.state.endDate}</h1>
+          <h1>{this.state.startDate ? this.state.startDate : 'Start Date'}</h1>
+          <h1>{this.state.endDate ? this.state.endDate : 'End Date'}</h1>
         </div>
       </div>
     );
@@ -55,7 +55,7 @@ class Education extends Component {
             
                 <label htmlFor="school"></label>
                 <input className=' font-bold text-xl' id="school"
-                        type="text" value={this.state.school} onChange={this.handleChange}  placeholder="St Josephines Highschool and Gym">
+                        type="text" value={this.state.school} onChange={this.handleChange}  placeholder="School">
                 </input>
               </div>
             </div>
