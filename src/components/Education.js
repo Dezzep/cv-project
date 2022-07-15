@@ -42,7 +42,7 @@ const Education = (props) =>  {
               <div className='tooltip tooltip-secondary' data-tip='Name of your school'>
             
                 <label htmlFor="school"></label>
-                <input className=' font-bold text-xl mb-2' id="school"
+                <input className=' font-bold text-xl mb-2 md:p-1 p-2' id="school"
                         type="text" value={school} onChange={e => setSchool(e.target.value)}  placeholder="School">
                 </input>
               </div>
@@ -50,7 +50,7 @@ const Education = (props) =>  {
             <div>
               <div className='tooltip tooltip-secondary' data-tip='What did you study'>
                 <label htmlFor="program"></label>
-                <input className='font-bold text-lg mb-2' id="program"
+                <input className='font-bold text-lg mb-2 md:p-1 p-2' id="program"
                         type="text" value={program} onChange={e => setProgram(e.target.value)}  placeholder="Computer Sciences">
                 </input>
               </div>
@@ -60,7 +60,7 @@ const Education = (props) =>  {
             <div>
               <div className='tooltip tooltip-secondary' data-tip='Date you started your schooling'>
                 <label htmlFor="startDate"></label>
-                <input className='text-center p-0 m-0' id="startDate"
+                <input className='text-center md:p-1 p-2 m-0' id="startDate"
                         type="date" value={startDate} onChange={e => setStartDate(e.target.value)}  placeholder="Start Date">
                 </input>
               </div>
@@ -68,7 +68,7 @@ const Education = (props) =>  {
             <div>
               <div className='tooltip tooltip-secondary' data-tip='Date you ended your schooling'>
                 <label htmlFor="endDate"></label>
-                <input className='text-center p-0 m-0' id="endDate"
+                <input className='text-center md:p-1 p-2 m-0' id="endDate"
                         type="date" value={endDate} onChange={e => setEndDate(e.target.value)}  placeholder="End Date">
                 </input>
               </div>

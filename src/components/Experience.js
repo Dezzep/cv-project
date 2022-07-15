@@ -45,14 +45,14 @@ const Experience = (props) => {
         <div className='flex-col justify-center align-center mt-6 ml-4'>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='What company did you work for?'> <label htmlFor="company"></label>
-            <input className='font-bold text-xl mb-2' id="company"
+            <input className='font-bold text-xl mb-2 p-2 md:p-1' id="company"
             type="text" value={company} onChange={e => setCompany(e.target.value)}  placeholder="Company Name">
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='What was your position at the company'> <label htmlFor="position"></label>
-            <input className='font-bold text-lg mb-2' id="position"
+            <input className='font-bold text-lg mb-2 p-2 md:p-1' id="position"
             type="text" value={position} onChange={e => setPosition(e.target.value)} placeholder="Your Position">
               </input>
             </div>
@@ -62,14 +62,14 @@ const Experience = (props) => {
         <div className='flex gap-2 ml-4 text-xs'>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='Start date of your job'> <label htmlFor="start"></label>
-            <input className='' id="start"
+            <input className='md:p-1 p-2' id="start"
             type="date" value={start} onChange={e => setStart(e.target.value)} placeholder='Start Date'>
               </input>
             </div>
           </div>
           <div>
             <div className='tooltip tooltip-secondary' data-tip='End date of your job'> <label htmlFor="end"></label>
-            <input className='' id="end"
+            <input className='md:p-1 p-2' id="end"
             type="date" value={end} onChange={e => setEnd(e.target.value)} placeholder='End Date'>
               </input>
             </div>
@@ -78,7 +78,7 @@ const Experience = (props) => {
         
         <div className='flex w-screen mt-6 p-4'>
           <div className='tooltip tooltip-secondary form-control w-full' data-tip='What are some things you did at work?'> <label htmlFor="tasks"></label>
-          <textarea className='textarea textarea-primary resize rounded-md h-56 w-full' id="tasks"
+          <textarea className='textarea textarea-primary resize rounded-md h-56 w-3/4 md:w-full' id="tasks"
            value={tasks} onChange={e => setTasks(e.target.value)} placeholder="write some things you did at work">
             </textarea>
           </div>
